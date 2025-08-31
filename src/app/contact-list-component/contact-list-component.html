@@ -1,1 +1,25 @@
-<p>contact-list-component works!</p>
+<div class="text-end">
+    <button type="button" class="btn btn-primary mb-3" routerLink="/form">Nuevo contacto</button>
+</div>
+
+<h2 class="mb-4">Mis contactos</h2>
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>EMAIL</th>
+            <th>FECHA DE CREACIÓN</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(contact of contacts; track contacts.id){
+            <tr>
+                <td>{{contact.id}}</td>
+                <td>{{contact.name}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.created_At | date:'dd/MM/yyyy a' }}</td>
+            </tr>
+        }
+    </tbody>
+</table>
