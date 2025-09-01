@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ContactServices } from '../services/contact-services';
 import { DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Contact } from '../model/contact.interface';
 
 
 @Component({
@@ -15,12 +16,12 @@ export default class ContactListComponent implements OnInit {
   // Se importar el servicio: Contact Services
   private contactServices = inject(ContactServices);
 
-  contacts : any = []
+  contacts : Contact[] = []
 
 
   ngOnInit(): void {
     this.contactServices.list()
-    .subscribe((contacts : any) => {
+    .subscribe((contacts) => {
       this.contacts = contacts;
     });
   }
