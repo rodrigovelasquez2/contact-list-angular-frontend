@@ -15,10 +15,10 @@ export class ContactServices {
   get(id: number){
     return this.http.get<Contact>(`http://localhost:8080/api/contacts/${id}`)
   }
-  create(contact : any ){
+  create(contact : Contact ){
     return this.http.post<Contact>(`http://localhost:8080/api/contacts`, contact)
   }
-  update(id: number, contact : any ){
+  update(id: number, contact : Contact ){
     return this.http.put<Contact>(`http://localhost:8080/api/contacts/${id}`, contact)
   }
   delete(id : number){

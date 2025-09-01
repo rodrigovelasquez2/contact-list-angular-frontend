@@ -1,21 +1,45 @@
-<h2 class="mb-3">Nuevo contacto</h2>
+<h2 class="mb-3">
+    @if(contact){
+         Editar contacto
+    }@else{
+         Nuevo contacto
+}</h2>
+
 <div class="row row-cols-3 justify-content-center">
-    <form [formGroup]= "form" (ngSubmit)="create()">
-        <div class="mb-3">
-            <label for="name" class="form-label">Nombre</label>
-            <input id= "name" type="text" placeholder="Nombre" class="form-control" formControlName="name">
-        </div>
+  @if (form) {
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Nombre"
+        class="form-control"
+        formControlName="name"
+      />
+    </div>
 
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input id= "email" type="email" placeholder="example@gmail.com" class="form-control" formControlName="email">
-        </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="example@gmail.com"
+        class="form-control"
+        formControlName="email"
+      />
+    </div>
 
-
-        <div class = "text-end ">
-            <button class="btn-success btn ms-2" type="submit">Crear contacto</button>
-            <button class="btn-danger btn ms-2" type="submit" routerLink="/">Cancelar</button>
-        </div>
-
-    </form>
+    <div class="text-end">
+        <button class="btn-success btn ms-2" type="submit">
+            @if(contact){
+                Editar
+            }@else{
+                Crear
+            }
+        </button>
+      <button class="btn-danger btn ms-2" type="submit" routerLink="/">Cancelar</button>
+    </div>
+  </form>
+  }
 </div>
