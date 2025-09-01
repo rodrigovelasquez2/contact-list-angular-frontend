@@ -1,14 +1,14 @@
 <h2 class="mb-3">Nuevo contacto</h2>
 <div class="row row-cols-3 justify-content-center">
-    <form>
+    <form [formGroup]= "form" (ngSubmit)="create()">
         <div class="mb-3">
             <label for="name" class="form-label">Nombre</label>
-            <input id= "name" type="text" placeholder="Nombre" class="form-control">
+            <input id= "name" type="text" placeholder="Nombre" class="form-control" formControlName="name">
         </div>
 
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input id= "email" type="email" placeholder="example@gmail.com" class="form-control">
+            <input id= "email" type="email" placeholder="example@gmail.com" class="form-control" formControlName="email">
         </div>
 
 
