@@ -23,7 +23,7 @@
                 <td>
                     <div class="btn-group">
                         <button class="btn btn-primary" [routerLink]="[contact.id, 'edit']">Editar</button>
-                        <button class="btn btn-danger">Eliminar</button>
+                        <button class="btn btn-danger" (click)="deleteContact(contact)">Eliminar</button>
                     </div>
                 </td>
             </tr>
