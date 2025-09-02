@@ -10,6 +10,7 @@ Características
 - Estilos modernos con Bootstrap.
 
 # Estructura del Proyecto
+```bash
 src/
 │
 ├── index.html                # Archivo principal HTML
@@ -40,3 +41,4 @@ src/
     └── services/
         └── contact-services.ts    # Servicio para consumir la API REST
 
+```
