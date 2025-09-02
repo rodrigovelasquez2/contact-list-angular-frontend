@@ -1,12 +1,19 @@
-<h2 class="mb-3">
-    @if(contact){
-         Editar contacto
-    }@else{
-         Nuevo contacto
-}</h2>
+<h2 class="mb-3">@if(contact){ Editar contacto }@else{ Nuevo contacto }</h2>
 
 <div class="row row-cols-3 justify-content-center">
   @if (form) {
+    <div>
+       @if (errors.length) {
+      <div class="alert alert-danger">
+        <p>Sucedio los siguientes errores</p>
+          <ul>
+              @for (error of errors; track error ) {
+              <li>{{ error }}</li>
+              }
+          </ul>
+      </div>
+  }
+
   <form [formGroup]="form" (ngSubmit)="save()">
     <div class="mb-3">
       <label for="name" class="form-label">Nombre</label>
@@ -17,6 +24,9 @@
         class="form-control"
         formControlName="name"
       />
+      @if(form.get('name')?.hasError('required') && form.get('name')?.touched){
+      <p class="invalid-feedback d-block">El nombre es obligatorio</p>
+      }
     </div>
 
     <div class="mb-3">
@@ -28,18 +38,21 @@
         class="form-control"
         formControlName="email"
       />
+      @if(form.get('email')?.hasError('required') && form.get('email')?.touched){
+      <p class="invalid-feedback d-block">El email es obligatorio</p>
+      } @if(form.get('email')?.hasError('email') && form.get('email')?.touched){
+      <p class="invalid-feedback d-block">El email es invalido</p>
+      }
     </div>
 
     <div class="text-end">
-        <button class="btn-success btn ms-2" type="submit">
-            @if(contact){
-                Editar
-            }@else{
-                Crear
-            }
-        </button>
+      <button class="btn-success btn ms-2" type="submit">
+        @if(contact){ Editar }@else{ Crear }
+      </button>
       <button class="btn-danger btn ms-2" type="submit" routerLink="/">Cancelar</button>
     </div>
   </form>
+    </div>
   }
+    
 </div>
