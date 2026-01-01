@@ -156,14 +156,14 @@ Abre `http://localhost:8080/api/contacts` y valida que retorne JSON.
 - Eliminar: botón **Eliminar** (confirma acción).
 
 ---
-
+<!--
 **Capturas de Pantalla / Demos**
 
 Añade aquí tus imágenes:
 
 ![Lista de contactos](url_imagen)
 ![Formulario de contacto](url_imagen)
-
+-->
 ---
 
 **Problemas comunes y soluciones rápidas**
